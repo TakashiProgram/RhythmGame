@@ -9,7 +9,7 @@ public class NotesMove : MonoBehaviour {
     private float m_MoveTime;
 
     [SerializeField]
-    private GameObject m_Destination;
+    public Transform m_Destination;
 
     private new Transform transform;
 
@@ -21,7 +21,7 @@ public class NotesMove : MonoBehaviour {
 	void Start () {
         transform = GetComponent<Transform>();
 
-        m_DestinationPos = m_Destination.transform.position;
+       // m_DestinationPos = m_Destination.position;
         m_StartPos = this.transform.position;
 
     }
@@ -29,9 +29,18 @@ public class NotesMove : MonoBehaviour {
 
 	void Update () {
         float time = m_Time / m_MoveTime;
-
+        
         transform.position = Vector3.Lerp(m_StartPos, m_DestinationPos, time);
 
         m_Time += Time.deltaTime;
+        if (transform.position == m_DestinationPos)
+        {
+            Destroy(gameObject);
+        }
 	}
+
+    public void SetDestinationPos(Vector3 pos)
+    {
+        m_DestinationPos = pos;
+    }
 }

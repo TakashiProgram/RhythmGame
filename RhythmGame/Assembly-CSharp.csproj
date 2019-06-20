@@ -64,6 +64,7 @@
     <Compile Include="Assets\MyPakage\Scripts\CSVReader.cs" />
     <Compile Include="Assets\MyPakage\Scripts\CSVWriter.cs" />
     <Compile Include="Assets\MyPakage\Scripts\Map.cs" />
+    <Compile Include="Assets\MyPakage\Scripts\NodeCreater.cs" />
     <Compile Include="Assets\MyPakage\Scripts\NotesMove.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>F:/Git/RhythmGame/RhythmGame/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
