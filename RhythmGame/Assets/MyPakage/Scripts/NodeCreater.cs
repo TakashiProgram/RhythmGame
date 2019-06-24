@@ -40,7 +40,7 @@ public class NodeCreater : MonoBehaviour {
     {
         GameObject node = Instantiate(m_Node,m_NodeParent.transform);
        node.transform.position = this.transform.position;
-        node.GetComponent<NotesMove>().SetDestinationPos(m_Destination.position);
+        node.GetComponent<NodeMove>().SetDestinationPos(m_Destination.position);
 
     }
 }

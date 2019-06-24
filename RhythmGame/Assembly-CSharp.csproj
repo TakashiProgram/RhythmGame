@@ -61,11 +61,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\MyPakage\Scripts\CSVReader.cs" />
-    <Compile Include="Assets\MyPakage\Scripts\CSVWriter.cs" />
-    <Compile Include="Assets\MyPakage\Scripts\Map.cs" />
+    <Compile Include="Assets\MyPakage\Scripts\CSV\CSVReader.cs" />
+    <Compile Include="Assets\MyPakage\Scripts\CSV\CSVWriter.cs" />
+    <Compile Include="Assets\MyPakage\Scripts\CSV\Map.cs" />
     <Compile Include="Assets\MyPakage\Scripts\NodeCreater.cs" />
-    <Compile Include="Assets\MyPakage\Scripts\NotesMove.cs" />
+    <Compile Include="Assets\MyPakage\Scripts\NodeMove.cs" />
+    <Compile Include="Assets\MyPakage\Scripts\RayCast.cs" />
+    <Compile Include="Assets\MyPakage\Scripts\TapManager.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>F:/Git/RhythmGame/RhythmGame/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
