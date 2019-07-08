@@ -1,4 +1,0 @@
-sceneSetups:
-- path: "C:/Users/souma/OneDrive/\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7/OTOGE/OTOGE/OTOGE/Assets/Scenes/Game.unity"
-  isLoaded: 1
-  isActive: 1
