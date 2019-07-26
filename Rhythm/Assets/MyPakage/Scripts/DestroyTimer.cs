@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DestroyTimer : MonoBehaviour {
 
-	// Use this for initialization
+    [SerializeField]
+    private float m_Timer = 1.0f;
 	void Start () {
         StartCoroutine("DestroyTime");
     }
@@ -16,7 +17,7 @@ public class DestroyTimer : MonoBehaviour {
 
     private IEnumerator DestroyTime()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(m_Timer);
         Destroy(this.gameObject);
     }
    

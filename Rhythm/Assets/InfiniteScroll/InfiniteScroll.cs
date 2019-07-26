@@ -13,7 +13,7 @@ public class InfiniteScroll : UIBehaviour
 	private int m_InstantateMusicsCount = 9;
 
 	[SerializeField]
-	private Direction m_Direction;
+	public Direction m_Direction;
 
 	//public OnItemPositionChange OnUpdateMusics = new OnItemPositionChange();
 

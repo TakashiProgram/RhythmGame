@@ -1,0 +1,2 @@
+F:\Git\RhythmGame\Rhythm\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+F:\Git\RhythmGame\Rhythm\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache

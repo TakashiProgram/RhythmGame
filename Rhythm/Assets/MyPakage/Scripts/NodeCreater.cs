@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NodeCreater : MonoBehaviour {
+public class NodeCreater : MonoBehaviour
+{
 
     [SerializeField]
     private GameObject m_Node;
@@ -21,12 +22,18 @@ public class NodeCreater : MonoBehaviour {
 
     private void Awake()
     {
-        m_Map = m_CsvRender.ReadCSV("Turkey");
+        m_Map = m_CsvRender.ReadCSV("test");
     }
-    
-	void Update () {
+
+    void Update()
+    {
         m_Time += Time.deltaTime;
-        if (m_Time >= float.Parse(m_Map[m_Line][0]))
+
+        if (0 == float.Parse(m_Map[m_Line][0]))
+        {
+            return;
+        }
+        else if (m_Time >= float.Parse(m_Map[m_Line][0]))
         {
             if (int.Parse(m_Map[m_Line][m_Selector]) == 1)
             {
@@ -34,12 +41,11 @@ public class NodeCreater : MonoBehaviour {
             }
             m_Line++;
         }
-
     }
     private void NodeCreate()
     {
-        GameObject node = Instantiate(m_Node,m_NodeParent.transform);
-       node.transform.position = this.transform.position;
+        GameObject node = Instantiate(m_Node, m_NodeParent.transform);
+        node.transform.position = this.transform.position;
         node.GetComponent<NodeMove>().SetDestinationPos(m_Destination.position);
 
     }

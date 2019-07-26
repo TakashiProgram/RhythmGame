@@ -17,10 +17,11 @@ public class HitManager : MonoBehaviour
 
     [SerializeField]
     private ComboManager m_ComboManager;
-    
+        
     private int m_JudgmentCount;
 
     private int m_NotCount = 0;
+
 
     void Start()
     {
@@ -42,13 +43,17 @@ public class HitManager : MonoBehaviour
         else if (Judgment.Great.ToString() == name)
         {
             m_JudgmentCount = (int)Judgment.Great;
+            
         }
         else if ((Judgment.Miss.ToString() == name) || ("DestroyPos" == name))
         {
             m_JudgmentCount = (int)Judgment.Miss;
-        }else
+            
+        }
+        else
         {
             m_JudgmentCount = (int)Judgment.None;
+            
         }
         m_NodeObject = node;
 

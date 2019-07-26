@@ -60,6 +60,6 @@ public class Map : MonoBehaviour {
 
     private void OnApplicationQuit()
     {
-        m_CsvWriter.WriteCSV(csv, "Turkey");
+        m_CsvWriter.WriteCSV(csv, "test");
     }
 }
