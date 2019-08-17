@@ -24,6 +24,11 @@ public class InfiniteScroll : UIBehaviour
 
 	protected int m_CurrentMusicsNo = 0;
 
+    [SerializeField]
+    private SoundList m_SoundList;
+
+    private int m_SoundIdex;
+
 	public enum Direction
 	{
 		Vertical,
@@ -74,10 +79,22 @@ public class InfiniteScroll : UIBehaviour
         m_MusicsPrototype.gameObject.SetActive(false);
 		
 		for(int i = 0; i < m_InstantateMusicsCount; i++) {
+
+
 			var item = GameObject.Instantiate(m_MusicsPrototype) as RectTransform;
 			item.SetParent(transform, false);
 			item.name = i.ToString();
-			item.anchoredPosition = m_Direction == Direction.Vertical ? new Vector2(0, -itemScale * i) : new Vector2(itemScale * i, 0);
+           
+            string text = item.transform.GetChild(1).gameObject.GetComponent<Text>().text;
+            text = m_SoundList.SetSoundList()[m_SoundIdex];
+            item.transform.GetChild(1).gameObject.GetComponent<Text>().text = text;
+
+            m_SoundIdex++;
+            if (m_SoundIdex >= m_SoundList.SetSoundList().Length)
+            {
+                m_SoundIdex = 0;
+            }
+            item.anchoredPosition = m_Direction == Direction.Vertical ? new Vector2(0, -itemScale * i) : new Vector2(itemScale * i, 0);
             m_MusicsList.AddLast(item);
 
 			item.gameObject.SetActive(true);

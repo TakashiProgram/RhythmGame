@@ -10,17 +10,36 @@ public class LoadScene : MonoBehaviour {
         Select,
         Game
     }
+
+    [SerializeField]
+    private FadeImage m_FadeImage;
+
+    private bool m_IsChangeScene = false;
     [SerializeField]
     private SceneName m_SceneName;
+
+    [SerializeField]
+    private Fade m_Fade;
 	void Start () {
-		
+        
 	}
 	
 	void Update () {
-		
+       
+        float range = m_FadeImage.SetRange();
+        
+        if (true == m_IsChangeScene)
+        {
+            if (range >= 1)
+            {
+                SceneManager.LoadScene(m_SceneName.ToString());
+            }
+        }
 	}
     public void ChangeScene()
     {
-        SceneManager.LoadScene(m_SceneName.ToString());
+        m_IsChangeScene=true;
+        m_Fade.FadeIn(1.0f);
+
     }
 }
