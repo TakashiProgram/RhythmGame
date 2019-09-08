@@ -88,12 +88,10 @@ public class InfiniteScroll : UIBehaviour
             item.name = text;
 
             item.transform.GetChild(1).gameObject.GetComponent<Text>().text = text;
-            string clear_name = PlayerPrefs.GetString(text, "なし");
-            Debug.Log(clear_name);
-           
+            string clear_name = PlayerPrefs.GetString(text, "null");           
 
             GameObject clear_object = item.transform.GetChild(2).gameObject;
-            if (clear_name != "なし")
+            if (clear_name != "null")
             {
                 clear_object.SetActive(true);
             }

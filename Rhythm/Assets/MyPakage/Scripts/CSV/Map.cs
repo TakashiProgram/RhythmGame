@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Map : MonoBehaviour {
@@ -13,12 +12,7 @@ public class Map : MonoBehaviour {
     int g;
 
     private float m_Time;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
+    
 	// Update is called once per frame
 	void Update () {
         m_Time += Time.deltaTime;
@@ -60,6 +54,6 @@ public class Map : MonoBehaviour {
 
     private void OnApplicationQuit()
     {
-        m_CsvWriter.WriteCSV(csv, "test");
+        m_CsvWriter.WriteCSV(csv, "DS_");
     }
 }

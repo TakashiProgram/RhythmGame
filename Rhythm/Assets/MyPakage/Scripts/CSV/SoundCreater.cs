@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SoundCreater : MonoBehaviour {
     [SerializeField]
@@ -14,11 +12,6 @@ public class SoundCreater : MonoBehaviour {
         Invoke("StateSound", m_Time);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     private void StateSound()
     {
         m_AudioSource.Play();

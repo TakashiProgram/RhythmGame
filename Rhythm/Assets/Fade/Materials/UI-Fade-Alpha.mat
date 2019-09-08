@@ -31,4 +31,4 @@ Material:
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
     m_Colors:
-    - _Color: {r: 0.5277518, g: 1, b: 0, a: 1}
+    - _Color: {r: 1, g: 0.40117237, b: 0, a: 1}

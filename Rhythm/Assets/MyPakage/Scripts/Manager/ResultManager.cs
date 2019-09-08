@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ResultManager : MonoBehaviour {
     [SerializeField]
@@ -15,12 +13,11 @@ public class ResultManager : MonoBehaviour {
 		
 	}
 	
-	// Update is called once per frame
 	void Update () {
         if (Input.GetMouseButtonDown(0))
         {
             GameObject obj = m_RayCast.RayerHitObject();
-            Debug.Log(obj);
+           
             LoadScene load_scene = obj.GetComponent<LoadScene>();
             if (null != load_scene)
             {
