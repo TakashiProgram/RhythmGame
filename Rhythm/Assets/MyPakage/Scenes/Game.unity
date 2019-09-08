@@ -1324,7 +1324,7 @@ GameObject:
   - component: {fileID: 886350661}
   - component: {fileID: 886350662}
   m_Layer: 0
-  m_Name: DestroyPos (1)
+  m_Name: DestroyPos
   m_TagString: DestroyPos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1661,7 +1661,7 @@ GameObject:
   - component: {fileID: 1008696722}
   - component: {fileID: 1008696723}
   m_Layer: 0
-  m_Name: DestroyPos (1)
+  m_Name: DestroyPos
   m_TagString: DestroyPos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1702,7 +1702,7 @@ GameObject:
   - component: {fileID: 1036901828}
   - component: {fileID: 1036901829}
   m_Layer: 0
-  m_Name: DestroyPos (1)
+  m_Name: DestroyPos
   m_TagString: DestroyPos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2155,7 +2155,7 @@ GameObject:
   - component: {fileID: 1371595684}
   - component: {fileID: 1371595683}
   m_Layer: 0
-  m_Name: "NEWS\u30B0\u30C3\u30BA\u5217WORLDISTA2019"
+  m_Name: GameImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2393,8 +2393,8 @@ GameObject:
   - component: {fileID: 1539276595}
   - component: {fileID: 1539276597}
   - component: {fileID: 1539276596}
-  - component: {fileID: 1539276594}
   - component: {fileID: 1539276598}
+  - component: {fileID: 1539276599}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2477,34 +2477,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1539276594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1539276588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04dfd699e2eb177438c0a8952b05123e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SongTitle: {fileID: 1598159148}
-  m_StateNode:
-  - {fileID: 1542925683}
-  - {fileID: 882145255}
-  - {fileID: 1191594690}
-  - {fileID: 494630002}
-  - {fileID: 793587959}
-  m_AudioSource: {fileID: 1539276595}
-  m_LoadScene: {fileID: 1539276598}
-  m_PlaySoundList:
-  - {fileID: 8300000, guid: 99d12801314b36d4e95534ecaf0c4751, type: 3}
-  - {fileID: 8300000, guid: 43c6a1bf5057beb43af5848909adf88b, type: 3}
-  - {fileID: 8300000, guid: 24f01d093d6650f41b6c9e9eb82c9e8f, type: 3}
-  m_SoundImage:
-  - {fileID: 21300000, guid: d7cc42969e956bf448875bdf818da17e, type: 3}
-  - {fileID: 21300000, guid: c7e35dabbb084cc41afae7e8343365b7, type: 3}
-  - {fileID: 21300000, guid: 9e2c57a63abe7c54e961d85d6ee201ce, type: 3}
 --- !u!82 &1539276595
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2638,6 +2610,34 @@ MonoBehaviour:
   m_FadeImage: {fileID: 1815173778}
   m_SceneName: 3
   m_Fade: {fileID: 1815173777}
+--- !u!114 &1539276599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1539276588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34a23e8af490b65458b3ee6a5763d7a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SongTitle: {fileID: 1598159148}
+  m_StateNode:
+  - {fileID: 1542925683}
+  - {fileID: 882145255}
+  - {fileID: 1191594690}
+  - {fileID: 494630002}
+  - {fileID: 793587959}
+  m_AudioSource: {fileID: 1539276595}
+  m_LoadScene: {fileID: 1539276598}
+  m_PlaySoundList:
+  - {fileID: 8300000, guid: 99d12801314b36d4e95534ecaf0c4751, type: 3}
+  - {fileID: 8300000, guid: 43c6a1bf5057beb43af5848909adf88b, type: 3}
+  - {fileID: 8300000, guid: 24f01d093d6650f41b6c9e9eb82c9e8f, type: 3}
+  m_SoundImage:
+  - {fileID: 21300000, guid: d7cc42969e956bf448875bdf818da17e, type: 3}
+  - {fileID: 21300000, guid: c7e35dabbb084cc41afae7e8343365b7, type: 3}
+  - {fileID: 21300000, guid: 9e2c57a63abe7c54e961d85d6ee201ce, type: 3}
 --- !u!1 &1542925683
 GameObject:
   m_ObjectHideFlags: 0
@@ -3145,7 +3145,7 @@ GameObject:
   - component: {fileID: 1648953441}
   - component: {fileID: 1648953442}
   m_Layer: 0
-  m_Name: DestroyPos (1)
+  m_Name: DestroyPos
   m_TagString: DestroyPos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3186,7 +3186,7 @@ GameObject:
   - component: {fileID: 1666679172}
   - component: {fileID: 1666679173}
   m_Layer: 0
-  m_Name: DestroyPos (1)
+  m_Name: DestroyPos
   m_TagString: DestroyPos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

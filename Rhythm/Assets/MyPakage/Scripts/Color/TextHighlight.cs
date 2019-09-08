@@ -9,12 +9,7 @@ public class TextHighlight : MonoBehaviour {
     private TextMeshProUGUI m_TextMeshProUGUI;
 
     private float m_Num = Mathf.PI;
-
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
+    
 	void Update () {
         Material mat = m_TextMeshProUGUI.fontMaterial;
 

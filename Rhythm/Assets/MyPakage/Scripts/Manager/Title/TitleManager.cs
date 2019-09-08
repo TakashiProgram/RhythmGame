@@ -5,23 +5,19 @@ using UnityEngine;
 public class TitleManager : MonoBehaviour {
     [SerializeField]
     private RayCast m_RayCast;
+
     [SerializeField]
     private EffectManager m_EffectManager;
+
     [SerializeField]
     private AudioSource m_AudioSource;
 
-
-    void Start () {
-       
-    }
-	
-	// Update is called once per frame
 	void Update () {
 
         if (Input.GetMouseButtonDown(0))
         {
             GameObject obj = m_RayCast.RayerHitObject();
-            Debug.Log(obj);
+            
             LoadScene load_scene = obj.GetComponent<LoadScene>();
             if (null != load_scene)
             { 
@@ -29,9 +25,9 @@ public class TitleManager : MonoBehaviour {
                 load_scene.ChangeScene();
             }
 
-            Vector3 tap = Input.mousePosition;
-            tap.z = 8;
-            m_EffectManager.TapEffect(Camera.main.ScreenToWorldPoint(tap));
+            Vector3 tap_pos = Input.mousePosition;
+            tap_pos.z = 8;
+            m_EffectManager.TapEffect(Camera.main.ScreenToWorldPoint(tap_pos));
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SelectController : MonoBehaviour {
 
@@ -14,16 +12,6 @@ public class SelectController : MonoBehaviour {
     private AudioSource m_AudioSource;
 
     private bool m_IsFirst = true;
-
-    void Start () {
-        m_AudioSource.mute = false;
-
-    }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     private void OnTriggerEnter(Collider other)
     {

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class SetSound : MonoBehaviour {
@@ -18,15 +16,7 @@ public class SetSound : MonoBehaviour {
 
     [SerializeField]
     private Image m_SoundImage;
-	void Start () {
-		
-	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     public void SwitchSound()
     {
         m_AudioSource.clip = m_AudioClip[m_SoundIndex];

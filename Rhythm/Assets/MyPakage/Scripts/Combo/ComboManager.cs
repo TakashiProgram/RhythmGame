@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ComboManager : MonoBehaviour {
@@ -48,11 +46,6 @@ public class ComboManager : MonoBehaviour {
     [SerializeField]
     private AudioClip[] m_AudioClip;
 
-    void Start () {
-       
-	}
-	
-	// Update is called once per frame
 	void Update () {
         if (0<m_ComboCount)
         {
@@ -70,7 +63,6 @@ public class ComboManager : MonoBehaviour {
     }
     public void SetComboCount(int count)
     {
-
         switch (count)
         {
             case (int)Judgment.PERFECT:

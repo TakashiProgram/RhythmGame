@@ -21,10 +21,7 @@ public class LoadScene : MonoBehaviour {
 
     [SerializeField]
     private Fade m_Fade;
-	void Start () {
-        
-	}
-	
+
 	void Update () {
        
         float range = m_FadeImage.SetRange();

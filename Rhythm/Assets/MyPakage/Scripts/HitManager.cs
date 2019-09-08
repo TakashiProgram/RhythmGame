@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class HitManager : MonoBehaviour
 {
@@ -22,45 +20,25 @@ public class HitManager : MonoBehaviour
 
     private int m_NotCount = 0;
     
-
-
-    void Start()
-    {
-
-    }
-    
-    void Update()
-    {
-        
-    }
-
     public void SetObjectName(string name,GameObject node)
     {
         if (Judgment.Perfect.ToString() == name)
         {
-            
             m_JudgmentCount = (int)Judgment.Perfect;
-            
         }
         else if (Judgment.Great.ToString() == name)
         {
-            
             m_JudgmentCount = (int)Judgment.Great;
-            
         }
         else if ((Judgment.Miss.ToString() == name) || ("DestroyPos" == name))
         {
-            
             m_JudgmentCount = (int)Judgment.Miss;
-            
         }
         else
         {
             m_JudgmentCount = (int)Judgment.None;
-            
         }
         m_NodeObject = node;
-
     }
 
     public Vector3 GetPos()
@@ -81,6 +59,4 @@ public class HitManager : MonoBehaviour
     {
         return m_NodeObject;
     }
-
-
 }

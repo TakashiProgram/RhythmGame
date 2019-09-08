@@ -15,8 +15,6 @@ public class InfiniteScroll : UIBehaviour
 	[SerializeField]
 	public Direction m_Direction;
 
-	//public OnItemPositionChange OnUpdateMusics = new OnItemPositionChange();
-
 	[System.NonSerialized]
 	public LinkedList<RectTransform> m_MusicsList = new LinkedList<RectTransform>();
 

@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class NodeCreater : MonoBehaviour
 {
-
     [SerializeField]
     private GameObject[] m_Node;
     [SerializeField]
@@ -24,7 +22,7 @@ public class NodeCreater : MonoBehaviour
 
     private GameObject m_LongNode;
 
-    private string m_PlayeSoundName = "ロロナ";
+    private string m_PlayeSoundName = "DS_First";
 
     [SerializeField]
     private GameObject m_LineController;
@@ -57,11 +55,8 @@ public class NodeCreater : MonoBehaviour
                 {
                     GameObject end_node = NodeCreate(m_Node[1]);
                     GameObject line = Instantiate(m_LineController);
-                  //  line.transform.parent = m_LongNode.transform;
                     line.GetComponent<LineController>().SetLinePos(m_LongNode,end_node);
                 }
-
-               
             }else if (int.Parse(m_Map[m_Line][m_Selector]) == 3)
             {
                 NodeCreate(m_Node[2]);
@@ -88,7 +83,7 @@ public class NodeCreater : MonoBehaviour
     {
         if (name == "")
         {
-            name = "ロロナ";
+            name = "DS_First";
         }
         m_PlayeSoundName = name;
     }

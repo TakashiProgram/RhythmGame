@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ScoreManager : MonoBehaviour {
 
@@ -13,11 +11,6 @@ public class ScoreManager : MonoBehaviour {
         DontDestroyOnLoad(this);
     }
 	
-	// Update is called once per frame
-	void Update () {
-
-	}
-
     public void ScoreAdd(int score)
     {
         m_OverallScore += score;

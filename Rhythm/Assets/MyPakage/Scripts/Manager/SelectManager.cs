@@ -34,10 +34,7 @@ public class SelectManager : MonoBehaviour {
 
     [SerializeField]
     private AudioClip[] m_AudioClip;
-    void Start () {
-	}
-	
-	// Update is called once per frame
+   
 	void Update () {
 
         if (Input.GetMouseButtonDown(0))
@@ -77,8 +74,6 @@ public class SelectManager : MonoBehaviour {
                 m_AudioSource.Play();
             }
            
-
-
             Vector3 tap = Input.mousePosition;
             tap.z = 8;
             m_EffectManager.TapEffect(Camera.main.ScreenToWorldPoint(tap));
@@ -98,10 +93,7 @@ public class SelectManager : MonoBehaviour {
             if (color_controller != null)
             {
                 color_controller.SetReturnColor();
-            }
-                
-            
+            } 
         }
-        
     }
 }
