@@ -21,6 +21,7 @@ public class HitManager : MonoBehaviour
     private int m_JudgmentCount;
 
     private int m_NotCount = 0;
+    
 
 
     void Start()
@@ -37,16 +38,19 @@ public class HitManager : MonoBehaviour
     {
         if (Judgment.Perfect.ToString() == name)
         {
+            
             m_JudgmentCount = (int)Judgment.Perfect;
             
         }
         else if (Judgment.Great.ToString() == name)
         {
+            
             m_JudgmentCount = (int)Judgment.Great;
             
         }
         else if ((Judgment.Miss.ToString() == name) || ("DestroyPos" == name))
         {
+            
             m_JudgmentCount = (int)Judgment.Miss;
             
         }
@@ -57,6 +61,11 @@ public class HitManager : MonoBehaviour
         }
         m_NodeObject = node;
 
+    }
+
+    public Vector3 GetPos()
+    {
+        return this.transform.position;
     }
 
     public void SetNotHit(int count)

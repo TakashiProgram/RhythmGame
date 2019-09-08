@@ -8,7 +8,8 @@ public class LoadScene : MonoBehaviour {
     {
         Titel,
         Select,
-        Game
+        Game,
+        Result
     }
 
     [SerializeField]

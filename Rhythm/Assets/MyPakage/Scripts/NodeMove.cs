@@ -51,6 +51,7 @@ public class NodeMove : MonoBehaviour {
             
             parent.GetComponent<HitManager>().SetObjectName(other.name,this.gameObject);
         }
+        
         if (other.gameObject.tag == "DestroyPos")
         {
             GameObject parent = other.transform.parent.gameObject;

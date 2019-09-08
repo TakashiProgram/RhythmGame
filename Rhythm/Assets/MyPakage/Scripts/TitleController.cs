@@ -9,7 +9,7 @@ public class TitleController : MonoBehaviour {
     
     private bool m_IsTransparent;
 
-    private float m_Color;
+    private float m_Color = 1;
 
     [SerializeField]
     private GameObject[] m_StateNode;
@@ -24,7 +24,24 @@ public class TitleController : MonoBehaviour {
     [SerializeField]
     private LoadScene m_LoadScene;
 
+    [SerializeField]
+    private AudioClip[] m_PlaySoundList;
+
+    [SerializeField]
+    private Sprite[] m_SoundImage;
+
+    private string m_SoundName;
+
     void Start () {
+        SoundSava sound_sava = GameObject.Find("SoundSava").GetComponent<SoundSava>();
+        int sound_index = sound_sava.GetSoundCount();
+        m_SoundName = sound_sava.GetSoundName();
+        Debug.Log(sound_index);
+        m_AudioSource.clip = m_PlaySoundList[sound_index];
+
+       // Destroy(sound_sava.gameObject);
+
+        m_SongTitle.sprite = m_SoundImage[sound_index];
         StartCoroutine("SongTitle");
 	}
 	
@@ -32,18 +49,19 @@ public class TitleController : MonoBehaviour {
 	void Update () {
         if (true == m_IsTransparent)
         {
-            m_SongTitle.color = new Color(0, 0, 0, m_Color);
+            m_SongTitle.color = new Color(255, 255, 255, m_Color);
             m_Color -= Time.deltaTime;
             if (m_Color <0 && test==false)
             {
                 m_SongTitle.enabled = false;
-                // Destroy(this.gameObject.GetComponent<TitleController>());
                 for (int i = 0; i < m_StateNode.Length; i++)
                 {
+                    m_StateNode[i].GetComponent<NodeCreater>().SetSounaName(m_SoundName);
                     m_StateNode[i].SetActive(true);
                 }
                 test = true;
                 Invoke("SoundRegeneration",5.0f);
+                m_IsTransparent = false;
             } 
         }
         if ((true == m_IsSoundPlay) && (!m_AudioSource.isPlaying))

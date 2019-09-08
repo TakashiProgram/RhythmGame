@@ -83,17 +83,34 @@ public class InfiniteScroll : UIBehaviour
 
 			var item = GameObject.Instantiate(m_MusicsPrototype) as RectTransform;
 			item.SetParent(transform, false);
-			item.name = i.ToString();
+			
            
             string text = item.transform.GetChild(1).gameObject.GetComponent<Text>().text;
             text = m_SoundList.SetSoundList()[m_SoundIdex];
-            item.transform.GetChild(1).gameObject.GetComponent<Text>().text = text;
+            item.name = text;
 
+            item.transform.GetChild(1).gameObject.GetComponent<Text>().text = text;
+            string clear_name = PlayerPrefs.GetString(text, "なし");
+            Debug.Log(clear_name);
+           
+
+            GameObject clear_object = item.transform.GetChild(2).gameObject;
+            if (clear_name != "なし")
+            {
+                clear_object.SetActive(true);
+            }
+            else
+            {
+                clear_object.SetActive(false);
+            }
+            item.transform.GetChild(3).gameObject.name = m_SoundIdex.ToString();
             m_SoundIdex++;
             if (m_SoundIdex >= m_SoundList.SetSoundList().Length)
             {
                 m_SoundIdex = 0;
             }
+
+            
             item.anchoredPosition = m_Direction == Direction.Vertical ? new Vector2(0, -itemScale * i) : new Vector2(itemScale * i, 0);
             m_MusicsList.AddLast(item);
 
@@ -121,8 +138,7 @@ public class InfiniteScroll : UIBehaviour
 			var item = m_MusicsList.First.Value;
             m_MusicsList.RemoveFirst();
             m_MusicsList.AddLast(item);
-
-			var pos = itemScale * m_InstantateMusicsCount + itemScale * m_CurrentMusicsNo;
+            var pos = itemScale * m_InstantateMusicsCount + itemScale * m_CurrentMusicsNo;
 			item.anchoredPosition = (m_Direction == Direction.Vertical) ? new Vector2(0, -pos) : new Vector2(pos, 0);
 
            // OnUpdateMusics.Invoke(m_CurrentMusicsNo + m_InstantateMusicsCount, item.gameObject);
@@ -132,7 +148,7 @@ public class InfiniteScroll : UIBehaviour
 
 		while(anchoredPosition - m_DiffPreFramePosition > 0) {
             m_DiffPreFramePosition += itemScale;
-
+            
 			var item = m_MusicsList.Last.Value;
             m_MusicsList.RemoveLast();
             m_MusicsList.AddFirst(item);

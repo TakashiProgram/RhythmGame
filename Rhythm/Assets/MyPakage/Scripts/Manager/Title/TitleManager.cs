@@ -7,10 +7,13 @@ public class TitleManager : MonoBehaviour {
     private RayCast m_RayCast;
     [SerializeField]
     private EffectManager m_EffectManager;
-    
+    [SerializeField]
+    private AudioSource m_AudioSource;
+
+
     void Start () {
-		
-	}
+       
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -21,7 +24,8 @@ public class TitleManager : MonoBehaviour {
             Debug.Log(obj);
             LoadScene load_scene = obj.GetComponent<LoadScene>();
             if (null != load_scene)
-            {
+            { 
+                m_AudioSource.Play();
                 load_scene.ChangeScene();
             }
 

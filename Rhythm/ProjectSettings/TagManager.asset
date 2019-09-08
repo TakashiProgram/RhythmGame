@@ -11,6 +11,8 @@ TagManager:
   - Yes
   - No
   - Select
+  - Long
+  - Flick
   layers:
   - Default
   - TransparentFX

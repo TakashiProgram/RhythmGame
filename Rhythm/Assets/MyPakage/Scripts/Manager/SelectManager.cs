@@ -23,12 +23,23 @@ public class SelectManager : MonoBehaviour {
 
     [SerializeField]
     private LoadScene m_LoadScene;
-	void Start () {
-		
+
+    [SerializeField]
+    private SetSound m_SetSound;
+
+    private bool m_IsSound = true;
+
+    [SerializeField]
+    private AudioSource m_AudioSource;
+
+    [SerializeField]
+    private AudioClip[] m_AudioClip;
+    void Start () {
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
         if (Input.GetMouseButtonDown(0))
         {
             m_TapObject = m_RayCast.RayerHitObject();
@@ -44,18 +55,26 @@ public class SelectManager : MonoBehaviour {
             {
                 m_ITweenManager.ITweenScale(m_SelectUI,4);
                 m_ScrollObject.enabled = false;
-                
+                m_IsSound = false;
+                m_AudioSource.clip = m_AudioClip[0];
+                m_AudioSource.Play();
             }
 
             if (m_TapObject.tag == "No")
             {
                 m_ITweenManager.ITweenScale(m_SelectUI, 0);
                 m_ScrollObject.enabled = true;
+                m_IsSound = false;
+                m_AudioSource.clip = m_AudioClip[1];
+                m_AudioSource.Play();
             }
 
             if (m_TapObject.tag == "Yes")
             {
                 m_LoadScene.ChangeScene();
+                m_IsSound = false;
+                m_AudioSource.clip = m_AudioClip[2];
+                m_AudioSource.Play();
             }
            
 
@@ -66,6 +85,14 @@ public class SelectManager : MonoBehaviour {
         }
         if (Input.GetMouseButtonUp(0))
         {
+
+            if (false == m_IsSound)
+            {
+                m_IsSound = true;
+                return;
+            }
+            m_SetSound.SwitchSound();
+
             ColorController color_controller = m_TapObject.GetComponent<ColorController>();
 
             if (color_controller != null)

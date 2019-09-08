@@ -6,9 +6,11 @@ public class NodeCreater : MonoBehaviour
 {
 
     [SerializeField]
-    private GameObject m_Node;
+    private GameObject[] m_Node;
     [SerializeField]
     private Transform m_Destination;
+    [SerializeField]
+    private Transform m_LineDes;
     private GameObject m_LostPostion;
     private CSVReader m_CsvRender = new CSVReader();
     private List<List<string>> m_Map = new List<List<string>>();
@@ -20,9 +22,16 @@ public class NodeCreater : MonoBehaviour
     [SerializeField]
     private GameObject m_NodeParent;
 
+    private GameObject m_LongNode;
+
+    private string m_PlayeSoundName = "ロロナ";
+
+    [SerializeField]
+    private GameObject m_LineController;
+
     private void Awake()
     {
-        m_Map = m_CsvRender.ReadCSV("test");
+        m_Map = m_CsvRender.ReadCSV(m_PlayeSoundName);
     }
 
     void Update()
@@ -37,16 +46,50 @@ public class NodeCreater : MonoBehaviour
         {
             if (int.Parse(m_Map[m_Line][m_Selector]) == 1)
             {
-                NodeCreate();
+                NodeCreate(m_Node[0]);
+            }else if (int.Parse(m_Map[m_Line][m_Selector]) == 2)
+            {
+                if (null == m_LongNode)
+                {
+                    m_LongNode = NodeCreate(m_Node[1]);
+                }
+                else
+                {
+                    GameObject end_node = NodeCreate(m_Node[1]);
+                    GameObject line = Instantiate(m_LineController);
+                  //  line.transform.parent = m_LongNode.transform;
+                    line.GetComponent<LineController>().SetLinePos(m_LongNode,end_node);
+                }
+
+               
+            }else if (int.Parse(m_Map[m_Line][m_Selector]) == 3)
+            {
+                NodeCreate(m_Node[2]);
+            }else if (int.Parse(m_Map[m_Line][m_Selector]) == 4)
+            {
+                NodeCreate(m_Node[3]);
+            }else if (int.Parse(m_Map[m_Line][m_Selector]) == 5)
+            {
+                NodeCreate(m_Node[0]);
             }
             m_Line++;
         }
     }
-    private void NodeCreate()
+    private GameObject NodeCreate(GameObject obj)
     {
-        GameObject node = Instantiate(m_Node, m_NodeParent.transform);
+        GameObject node = Instantiate(obj, m_NodeParent.transform);
         node.transform.position = this.transform.position;
         node.GetComponent<NodeMove>().SetDestinationPos(m_Destination.position);
+        return node;
 
+    }
+
+    public void SetSounaName(string name)
+    {
+        if (name == "")
+        {
+            name = "ロロナ";
+        }
+        m_PlayeSoundName = name;
     }
 }
