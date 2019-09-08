@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TapManager : MonoBehaviour
 {
@@ -20,13 +18,7 @@ public class TapManager : MonoBehaviour
     private GameObject m_FlickNode = null;
 
     private GameObject m_RayFlick = null;
-
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
 
@@ -84,7 +76,6 @@ public class TapManager : MonoBehaviour
                 {
                     return;
                 }
-                Debug.Log("hit");
                 HitManager hit_manager = m_RayFlick.GetComponent<HitManager>();
                 int count = hit_manager.GetJudgmentCount();
 
@@ -93,12 +84,10 @@ public class TapManager : MonoBehaviour
                 m_IsFlick = false;
                 Destroy(m_FlickNode);
             }
-
         }
 
         if (Input.GetMouseButtonUp(0))
         {
-           
             GameObject obj = m_Raycast.RayerHitObject();
             
             if (obj.gameObject.tag == "Tap")
@@ -135,6 +124,4 @@ public class TapManager : MonoBehaviour
         m_IsFlick = true;
 
     }
-    //  }
-    //}
 }
