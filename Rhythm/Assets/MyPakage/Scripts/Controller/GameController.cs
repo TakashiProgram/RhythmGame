@@ -34,8 +34,17 @@ public class GameController : MonoBehaviour {
     void Start()
     {
         SoundSava sound_sava = GameObject.Find("SoundSava").GetComponent<SoundSava>();
+        if (null == sound_sava)
+        {
+            return;
+        }
         int sound_index = sound_sava.GetSoundCount();
         m_SoundName = sound_sava.GetSoundName();
+        if (null == m_SoundName)
+        {
+            return;
+        }
+
         m_AudioSource.clip = m_PlaySoundList[sound_index];
         
         m_SongTitle.sprite = m_SoundImage[sound_index];
@@ -48,7 +57,7 @@ public class GameController : MonoBehaviour {
         {
             m_SongTitle.color = new Color(255, 255, 255, m_Color);
             m_Color -= Time.deltaTime;
-            if (m_Color < 0 && m_IsGameState == false)
+            if ((m_Color < 0) && (m_IsGameState == false))
             {
                 m_SongTitle.enabled = false;
                 for (int i = 0; i < m_StateNode.Length; i++)

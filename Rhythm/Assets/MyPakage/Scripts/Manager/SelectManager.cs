@@ -41,6 +41,11 @@ public class SelectManager : MonoBehaviour {
         {
             m_TapObject = m_RayCast.RayerHitObject();
 
+            if (null == m_TapObject)
+            {
+                return;
+            }
+
             ColorController color_controller = m_TapObject.GetComponent<ColorController>();
             
             if (color_controller != null)

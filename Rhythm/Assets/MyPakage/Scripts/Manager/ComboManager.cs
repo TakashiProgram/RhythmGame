@@ -47,7 +47,7 @@ public class ComboManager : MonoBehaviour {
     private AudioClip[] m_AudioClip;
 
 	void Update () {
-        if (0<m_ComboCount)
+        if (0  <m_ComboCount)
         {
             m_ComboText.text = "Combo \n" + m_ComboCount;
         }

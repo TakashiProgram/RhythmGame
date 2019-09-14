@@ -5,18 +5,26 @@ public class NodeCreater : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] m_Node;
+
     [SerializeField]
     private Transform m_Destination;
+
     [SerializeField]
     private Transform m_LineDes;
+
     private GameObject m_LostPostion;
+
     private CSVReader m_CsvRender = new CSVReader();
+
     private List<List<string>> m_Map = new List<List<string>>();
+
     private int m_Line = 0;
 
     private float m_Time = 0;
+
     [SerializeField]
     private int m_Selector = 0;
+
     [SerializeField]
     private GameObject m_NodeParent;
 
@@ -54,7 +62,15 @@ public class NodeCreater : MonoBehaviour
                 else
                 {
                     GameObject end_node = NodeCreate(m_Node[1]);
+                    if (null == end_node)
+                    {
+                        return;
+                    }
                     GameObject line = Instantiate(m_LineController);
+                    if (null == line)
+                    {
+                        return;
+                    }
                     line.GetComponent<LineController>().SetLinePos(m_LongNode,end_node);
                 }
             }else if (int.Parse(m_Map[m_Line][m_Selector]) == 3)
@@ -73,6 +89,7 @@ public class NodeCreater : MonoBehaviour
     private GameObject NodeCreate(GameObject obj)
     {
         GameObject node = Instantiate(obj, m_NodeParent.transform);
+        
         node.transform.position = this.transform.position;
         node.GetComponent<NodeMove>().SetDestinationPos(m_Destination.position);
         return node;

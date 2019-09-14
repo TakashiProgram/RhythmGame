@@ -34,9 +34,17 @@ public class TapManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             GameObject obj = m_Raycast.RayerHitObject();
+            if (null == obj)
+            {
+                return;
+            }
             if (obj.gameObject.tag == "Tap")
             {
                 HitManager hit_manager = obj.GetComponent<HitManager>();
+                if (null == hit_manager)
+                {
+                    return;
+                }
                 int count = hit_manager.GetJudgmentCount();
 
                 GameObject node = hit_manager.GetNodeObject();
@@ -77,6 +85,10 @@ public class TapManager : MonoBehaviour
                     return;
                 }
                 HitManager hit_manager = m_RayFlick.GetComponent<HitManager>();
+                if (null == hit_manager)
+                {
+                    return;
+                }
                 int count = hit_manager.GetJudgmentCount();
 
                 m_ComboManager.SetEffectPos(hit_manager.GetPos());
@@ -89,12 +101,16 @@ public class TapManager : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             GameObject obj = m_Raycast.RayerHitObject();
-            
+            if (null == obj)
+            {
+                return;
+            }
+
             if (obj.gameObject.tag == "Tap")
             {
                 HitManager hit_manager = obj.GetComponent<HitManager>();
                 int count = hit_manager.GetJudgmentCount();
-
+              
                 GameObject node = hit_manager.GetNodeObject();
                 
                 if (null == node)

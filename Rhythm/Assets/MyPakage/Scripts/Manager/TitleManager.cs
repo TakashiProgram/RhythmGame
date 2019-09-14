@@ -15,6 +15,11 @@ public class TitleManager : MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
         {
             GameObject obj = m_RayCast.RayerHitObject();
+
+            if (null == obj)
+            {
+                return;
+            }
             
             LoadScene load_scene = obj.GetComponent<LoadScene>();
             if (null != load_scene)
