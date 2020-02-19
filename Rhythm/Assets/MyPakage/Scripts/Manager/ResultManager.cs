@@ -2,7 +2,7 @@
 
 public class ResultManager : MonoBehaviour {
     [SerializeField]
-    private RayCast m_RayCast;
+    private RaySkipper m_RaySkipper;
 
     [SerializeField]
     private EffectManager m_EffectManager;
@@ -16,7 +16,7 @@ public class ResultManager : MonoBehaviour {
 	void Update () {
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject obj = m_RayCast.RayerHitObject();
+            GameObject obj = m_RaySkipper.HitObject();
            
             LoadScene load_scene = obj.GetComponent<LoadScene>();
             if (null != load_scene)

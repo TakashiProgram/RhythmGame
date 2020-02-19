@@ -5,10 +5,10 @@ using UnityEngine;
 public class SelectManager : MonoBehaviour {
 
     [SerializeField]
-    private RayCast m_RayCast;
+    private RaySkipper m_RaySkipper;
 
     [SerializeField]
-    private EffectManager m_EffectManager;
+    private EffectCrater m_EffectCrater;
 
     private GameObject m_TapObject;
 
@@ -34,35 +34,35 @@ public class SelectManager : MonoBehaviour {
 
     [SerializeField]
     private AudioClip[] m_AudioClip;
-   
-	void Update () {
 
-        if (Input.GetMouseButtonDown(0))
+    [SerializeField]
+    private TouchInputer m_TouchInputer;
+
+
+    void Update () {
+
+        var tap_down = m_TouchInputer.ObjectTapDown();
+
+        if (null != tap_down)
         {
-            m_TapObject = m_RayCast.RayerHitObject();
+            m_TapObject = tap_down;
+            ColorController color_controller = tap_down.GetComponent<ColorController>();
 
-            if (null == m_TapObject)
-            {
-                return;
-            }
-
-            ColorController color_controller = m_TapObject.GetComponent<ColorController>();
-            
             if (color_controller != null)
             {
                 color_controller.SetChangeColor();
             }
 
-            if (m_TapObject.tag == "Select")
+            if (tap_down.tag == "Select")
             {
-                m_ITweenManager.ITweenScale(m_SelectUI,4);
+                m_ITweenManager.ITweenScale(m_SelectUI, 4);
                 m_ScrollObject.enabled = false;
                 m_IsSound = false;
                 m_AudioSource.clip = m_AudioClip[0];
                 m_AudioSource.Play();
             }
 
-            if (m_TapObject.tag == "No")
+            if (tap_down.tag == "No")
             {
                 m_ITweenManager.ITweenScale(m_SelectUI, 0);
                 m_ScrollObject.enabled = true;
@@ -71,34 +71,33 @@ public class SelectManager : MonoBehaviour {
                 m_AudioSource.Play();
             }
 
-            if (m_TapObject.tag == "Yes")
+            if (tap_down.tag == "Yes")
             {
                 m_LoadScene.ChangeScene();
                 m_IsSound = false;
                 m_AudioSource.clip = m_AudioClip[2];
                 m_AudioSource.Play();
             }
+
            
-            Vector3 tap = Input.mousePosition;
-            tap.z = 8;
-            m_EffectManager.TapEffect(Camera.main.ScreenToWorldPoint(tap));
         }
-        if (Input.GetMouseButtonUp(0))
+        var tap_up = m_TouchInputer.ObjectTapUp();
+       
+        if (null != tap_up)
         {
-
-            if (false == m_IsSound)
-            {
-                m_IsSound = true;
-                return;
-            }
+            //if (false == m_IsSound)
+            //{
+            //    m_IsSound = true;
+            //    return;
+            //}
             m_SetSound.SwitchSound();
-
+            Debug.Log(tap_up);
             ColorController color_controller = m_TapObject.GetComponent<ColorController>();
 
             if (color_controller != null)
             {
                 color_controller.SetReturnColor();
-            } 
+            }
         }
     }
 }

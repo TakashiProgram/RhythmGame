@@ -4,7 +4,7 @@ public class TapManager : MonoBehaviour
 {
 
     [SerializeField]
-    private RayCast m_Raycast;
+    private RaySkipper m_RaySkipper;
 
     [SerializeField]
     private ComboManager m_ComboManager;
@@ -33,7 +33,7 @@ public class TapManager : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject obj = m_Raycast.RayerHitObject();
+            GameObject obj = m_RaySkipper.HitObject();
             if (null == obj)
             {
                 return;
@@ -55,7 +55,7 @@ public class TapManager : MonoBehaviour
                 }
                 if (node.gameObject.tag == "Flick")
                 {
-                    m_StateMousePos = m_Raycast.MousePos();
+                    m_StateMousePos = m_RaySkipper.MousePos();
                     m_FlickNode = node;
                     m_RayFlick = obj;
                     m_IsFlick = true;
@@ -80,7 +80,7 @@ public class TapManager : MonoBehaviour
                     Destroy(m_FlickNode);
                     return;
                 }
-                if (m_StateMousePos == m_Raycast.MousePos())
+                if (m_StateMousePos == m_RaySkipper.MousePos())
                 {
                     return;
                 }
@@ -100,7 +100,7 @@ public class TapManager : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            GameObject obj = m_Raycast.RayerHitObject();
+            GameObject obj = m_RaySkipper.HitObject();
             if (null == obj)
             {
                 return;

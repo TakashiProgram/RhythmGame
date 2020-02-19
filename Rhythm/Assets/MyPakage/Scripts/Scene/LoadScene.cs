@@ -20,8 +20,19 @@ public class LoadScene : MonoBehaviour {
     [SerializeField]
     private Fade m_Fade;
 
-	void Update () {
-       
+    [SerializeField]
+    private TouchInputer m_TouchInputer;
+
+    private GameObject m_TouchObj;
+    
+    void Update () {
+        if (null == m_TouchObj)
+        {
+            m_TouchObj = m_TouchInputer.ObjectTapDown();
+            return;
+        }
+        if (m_TouchObj != this.gameObject) return;
+        
         float range = m_FadeImage.SetRange();
         
         if (true == m_IsChangeScene)
@@ -31,11 +42,14 @@ public class LoadScene : MonoBehaviour {
                 SceneManager.LoadScene(m_SceneName.ToString());
             }
         }
+        else
+        {
+            ChangeScene();
+        }
 	}
     public void ChangeScene()
     {
         m_IsChangeScene=true;
         m_Fade.FadeIn(1.0f);
-
     }
 }

@@ -113,6 +113,48 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &86451995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 86451997}
+  - component: {fileID: 86451996}
+  m_Layer: 0
+  m_Name: EffectCreater
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &86451996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 86451995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a20079ca51856c64a89a549df95121f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectCreate: {fileID: 1650089024102572, guid: c5f85d01f89c25549ad9983f0a9d72db,
+    type: 2}
+--- !u!4 &86451997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 86451995}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &295839604
 Prefab:
   m_ObjectHideFlags: 0
@@ -244,6 +286,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &351038343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 351038345}
+  - component: {fileID: 351038344}
+  m_Layer: 0
+  m_Name: TouchInputer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &351038344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 351038343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a21712433738bf94ca7de737af7ae294, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RaySkipper: {fileID: 1032805663}
+  m_AudioSource: {fileID: 1032805669}
+  m_EffectCreater: {fileID: 86451996}
+--- !u!4 &351038345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 351038343}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &415304284
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,6 +620,7 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114379806929251872, guid: dc74774d29f77b44ab0ba590927df974, type: 2}
+    - {fileID: 114136735430632326, guid: dc74774d29f77b44ab0ba590927df974, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: dc74774d29f77b44ab0ba590927df974, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &898252655
@@ -677,8 +763,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761d11e25b110a54c9575a7fa54f14c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RayCast: {fileID: 1032805663}
-  m_EffectManager: {fileID: 1032805662}
+  m_RaySkipper: {fileID: 1032805663}
+  m_EffectCrater: {fileID: 86451996}
   m_SelectUI: {fileID: 2070687364}
   m_ITweenManager: {fileID: 1032805667}
   m_ScrollObject: {fileID: 445630899}
@@ -689,12 +775,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ea4aae0463e647c4a9f9fd8e9d96a39c, type: 3}
   - {fileID: 8300000, guid: 81d0b26c22009fb4f92ea9ff151ffe2d, type: 3}
   - {fileID: 8300000, guid: 2207e617931500f48a4603e5e2e83d74, type: 3}
---- !u!114 &1032805662 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114136735430632326, guid: dc74774d29f77b44ab0ba590927df974,
-    type: 2}
-  m_PrefabInternal: {fileID: 743378143}
-  m_Script: {fileID: 11500000, guid: df70d5bf05ef89d4289af8c73aae39dc, type: 3}
+  m_TouchInputer: {fileID: 351038344}
 --- !u!114 &1032805663 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114732498210640318, guid: dc74774d29f77b44ab0ba590927df974,
@@ -715,6 +796,7 @@ MonoBehaviour:
   m_FadeImage: {fileID: 926634284}
   m_SceneName: 2
   m_Fade: {fileID: 926634283}
+  m_TouchInputer: {fileID: 351038344}
 --- !u!20 &1032805665 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 20313816867040400, guid: dc74774d29f77b44ab0ba590927df974,
